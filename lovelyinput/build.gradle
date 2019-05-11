@@ -6,7 +6,7 @@ android {
     buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -30,7 +30,7 @@ publish {
     userOrg = rootProject.userOrg
     groupId = rootProject.groupId
     uploadName = rootProject.uploadName
-    publishVersion = '1.0.9'
+    publishVersion = '1.0.10'
     description = 'Implementation of UserInputModule for MaterialPreferences that uses LovelyDialogs library.'
     licences = rootProject.licences
 }

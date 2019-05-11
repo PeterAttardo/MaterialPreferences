@@ -2,6 +2,7 @@ package com.yarolegovich.mp.io;
 
 import android.content.Context;
 
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -36,6 +37,18 @@ public interface UserInputModule {
             CharSequence title,
             int defaultColor,
             Listener<Integer> color);
+
+    void showDatePickerInput(
+            String key,
+            CharSequence title,
+            Date defaultValue,
+            Listener<Date> listener);
+
+    void showTimePickerInput(
+            String key,
+            CharSequence title,
+            Date defaultValue,
+            Listener<Date> listener);
 
     interface Factory {
         UserInputModule create(Context context);

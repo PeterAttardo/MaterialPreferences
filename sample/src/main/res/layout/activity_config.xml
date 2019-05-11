@@ -75,6 +75,22 @@
             app:mp_show_value="onRight"
             app:mp_title="@string/time_format" />
 
+        <com.yarolegovich.mp.MaterialDatePickerPreference
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mp_default_value="2018-01-01"
+            app:mp_key="@string/pkey_start_date"
+            app:mp_show_value="onRight"
+            app:mp_title="@string/start_date" />
+
+        <com.yarolegovich.mp.MaterialTimePickerPreference
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mp_default_value="12:00"
+            app:mp_key="@string/pkey_start_time"
+            app:mp_show_value="onRight"
+            app:mp_title="@string/start_time" />
+
     </com.yarolegovich.mp.MaterialPreferenceCategory>
 
     <com.yarolegovich.mp.MaterialPreferenceCategory

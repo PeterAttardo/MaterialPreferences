@@ -15,6 +15,8 @@
     <string name="pkey_temperature">pref_key_temperature</string>
     <string name="pkey_date_format">pref_key_date_format</string>
     <string name="pkey_time_format">pref_key_time_format</string>
+    <string name="pkey_start_date">pref_key_start_date</string>
+    <string name="pkey_start_time">pref_key_start_time</string>
 
     <string name="pdef_location">Kiev</string>
     <string name="pdef_temp_units">°C</string>
@@ -27,6 +29,8 @@
     <string name="temp_units">Temperature units</string>
     <string name="date_format">Date format</string>
     <string name="time_format">Time format</string>
+    <string name="start_date">Start date</string>
+    <string name="start_time">Start time</string>
     <string name="help_improve">Help improve</string>
     <string name="rate_the_lib">Rate the library</string>
     <string name="donate">Donate</string>

@@ -76,7 +76,7 @@ public class MaterialPreferenceScreen extends ScrollView {
         controller.addPreferenceClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean shouldShow = showWhenChecked ? controller.getValue() : !controller.getValue();
+                boolean shouldShow = showWhenChecked ? !controller.getValue() : controller.getValue();
                 int visibility = shouldShow ? View.VISIBLE : View.GONE;
                 changeViewsVisibility(MaterialPreferenceScreen.this,
                         controlledIds,

@@ -65,7 +65,7 @@ abstract class AbsMaterialPreference<T> extends LinearLayout {
         init(attrs);
     }
 
-    private void init(AttributeSet attrs) {
+    protected void init(AttributeSet attrs) {
         userInputModule = MaterialPreferences.getUserInputModule(getContext());
         storageModule = MaterialPreferences.getStorageModule(getContext());
 

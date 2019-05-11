@@ -1,6 +1,8 @@
 package com.yarolegovich.mp.io;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v4.app.FragmentActivity;
@@ -8,8 +10,10 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TimePicker;
 
 import com.pavelsikun.vintagechroma.ChromaDialog;
 import com.pavelsikun.vintagechroma.IndicatorMode;
@@ -18,6 +22,8 @@ import com.pavelsikun.vintagechroma.colormode.ColorMode;
 import com.yarolegovich.mp.R;
 import com.yarolegovich.mp.util.Utils;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -143,5 +149,50 @@ public class StandardUserInputModule implements UserInputModule {
                 })
                 .create()
                 .show(activity.getSupportFragmentManager(), tag);
+    }
+
+    @Override
+    public void showDatePickerInput(String key, CharSequence title, Date defaultValue, final Listener<Date> listener) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(defaultValue);
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        final int day = cal.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog dialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.YEAR, year);
+                cal.set(Calendar.MONTH, month);
+                cal.set(Calendar.DAY_OF_MONTH, day);
+                cal.set(Calendar.HOUR_OF_DAY, 0);
+                cal.set(Calendar.MINUTE, 0);
+                cal.set(Calendar.SECOND, 0);
+                listener.onInput(cal.getTime());
+            }
+        }, year, month, day);
+        dialog.show();
+    }
+
+    @Override
+    public void showTimePickerInput(String key, CharSequence title, Date defaultValue, final Listener<Date> listener) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(defaultValue);
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        int minute = cal.get(Calendar.MINUTE);
+        TimePickerDialog dialog = new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hour, int minute) {
+                Calendar cal = Calendar.getInstance();
+                cal.set(Calendar.YEAR, 0);
+                cal.set(Calendar.MONTH, 0);
+                cal.set(Calendar.DAY_OF_MONTH, 0);
+                cal.set(Calendar.HOUR_OF_DAY, hour);
+                cal.set(Calendar.MINUTE, minute);
+                cal.set(Calendar.SECOND, 0);
+                listener.onInput(cal.getTime());
+            }
+        }, hour, minute, false);
+        dialog.show();
     }
 }
